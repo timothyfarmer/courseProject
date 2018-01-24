@@ -2,13 +2,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  styles: ['.active{ color: #000;}']
 })
 export class HeaderComponent {
-  @Output() linkClicked = new EventEmitter<string>();
 
-  onSelect(item: string) {
-    console.log('clicked ' + item);
-    this.linkClicked.emit(item);
-  }
 }
