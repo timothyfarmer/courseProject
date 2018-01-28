@@ -2,6 +2,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {Recipe} from './recipe.model';
 import {Ingredient} from '../shared/ingredient.model';
 import {Subject} from 'rxjs/Subject';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class RecipeService {
@@ -11,7 +12,7 @@ export class RecipeService {
       'This is simply a test', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
       [
         new Ingredient('Meat', 1),
-        new Ingredient('Frenc Fries', 20)
+        new Ingredient('French Fries', 20)
       ]),
     new Recipe('Another Test Recipe',
       'This is simply another test', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
@@ -21,7 +22,12 @@ export class RecipeService {
       ])
   ];
 
-  constructor() { }
+  constructor(private http: Http) { }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
