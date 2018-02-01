@@ -27,8 +27,9 @@ export class AuthService {
         }
       )
       .catch(error => console.log(error));
-
-    this.router.navigate(['/recipes']);
+    if (this.token != null) {
+      this.router.navigate(['/recipes']);
+    }
   }
 
   logout() {
