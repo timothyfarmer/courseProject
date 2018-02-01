@@ -10,7 +10,7 @@ import {AuthService} from '../../auth/auth.service';
 })
 export class HeaderComponent {
 
-  constructor(private dataService: DataStorageService, private authService: AuthService) {}
+  constructor(private dataService: DataStorageService, public authService: AuthService) {}
   saveData() {
     this.dataService.storeRecipes().subscribe(
       (response: Response) => {

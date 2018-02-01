@@ -17,7 +17,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editMode = false;
   editedItemId: number;
   editedItem: Ingredient;
-  protected shoppingForm: FormGroup;
+  shoppingForm: FormGroup;
 
   constructor(private shoppingListService: ShoppingListService) { }
   ngOnInit() {
