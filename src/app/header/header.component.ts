@@ -4,6 +4,7 @@ import {DataStorageService} from '../shared/data-storage.service';
 import {Subject} from 'rxjs/Subject';
 import {Recipe} from '../recipes/recipe.model';
 import {RecipeService} from '../recipes/recipe.service';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ import {RecipeService} from '../recipes/recipe.service';
 })
 export class HeaderComponent {
 
-  constructor(private dataService: DataStorageService, private recipeService: RecipeService) {}
+  constructor(private dataService: DataStorageService, private recipeService: RecipeService, private authService: AuthService) {}
   saveData() {
     this.dataService.storeRecipes().subscribe(
       (response: Response) => {
@@ -22,6 +23,11 @@ export class HeaderComponent {
   }
 
   getData() {
+
     this.dataService.getRecipes();
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 }
