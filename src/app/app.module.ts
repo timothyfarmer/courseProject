@@ -9,7 +9,6 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
-import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,7 @@ import {HttpModule} from '@angular/http';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,StaticInjectorError(AppModule)
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
