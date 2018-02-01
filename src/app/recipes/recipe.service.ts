@@ -2,7 +2,6 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {Recipe} from './recipe.model';
 import {Ingredient} from '../shared/ingredient.model';
 import {Subject} from 'rxjs/Subject';
-import {Http} from '@angular/http';
 
 @Injectable()
 export class RecipeService {
@@ -22,7 +21,7 @@ export class RecipeService {
       ])
   ];
 
-  constructor(private http: Http) { }
+  constructor() { }
 
   setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
