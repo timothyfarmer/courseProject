@@ -10,11 +10,12 @@ import {AuthService} from '../auth/auth.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from '../shared/auth.interceptor';
 import {ifTrue} from 'codelyzer/util/function';
+import {LoggingInterceptor} from '../shared/logging.interceptor';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    HomeComponent
+    HomeCogit stmponent
   ],
   imports: [
     SharedModule,
@@ -25,7 +26,8 @@ import {ifTrue} from 'codelyzer/util/function';
     RecipeService,
     DataStorageService,
     AuthService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} // special syntax for http interceptors
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, // special syntax for http interceptors
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true} // order is preserved. Auth -> Log
   ],
   exports: [AppRoutingModule, HeaderComponent]
 })
