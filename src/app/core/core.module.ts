@@ -15,7 +15,7 @@ import {LoggingInterceptor} from '../shared/logging.interceptor';
 @NgModule({
   declarations: [
     HeaderComponent,
-    HomeCogit stmponent
+    HomeComponent
   ],
   imports: [
     SharedModule,
