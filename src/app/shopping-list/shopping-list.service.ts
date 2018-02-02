@@ -1,9 +1,6 @@
-import {Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
-import {forEach} from '@angular/router/src/utils/collection';
 import {Subject} from 'rxjs/Subject';
 
-@Injectable()
 export class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>();
   startedEditing = new Subject<number>();
@@ -20,20 +17,6 @@ export class ShoppingListService {
 
   getIngredient(index: number) {
     return this.ingredients[index];
-  }
-
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients.slice());
-    console.log('emitted');
-  }
-
-  addIngredients(ingredients: Ingredient[]) {
-    // ingredients.forEach((ingredient) => {
-    //   this.ingredients.push(ingredient);
-    // });
-    this.ingredients.push(...ingredients);
-    this.ingredientsChanged.next(this.ingredients);
   }
 
   updateIngredient(index: number, newIngredient: Ingredient) {
