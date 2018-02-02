@@ -7,6 +7,9 @@ import {ShoppingListService} from '../shopping-list/shopping-list.service';
 import {RecipeService} from '../recipes/recipe.service';
 import {DataStorageService} from '../shared/data-storage.service';
 import {AuthService} from '../auth/auth.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from '../shared/auth.interceptor';
+import {ifTrue} from 'codelyzer/util/function';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import {AuthService} from '../auth/auth.service';
     RecipeService,
     DataStorageService,
     AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} // special syntax for http interceptors
   ],
   exports: [AppRoutingModule, HeaderComponent]
 })
