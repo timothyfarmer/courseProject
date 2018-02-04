@@ -57,7 +57,8 @@ export class AuthEffects {
           type: AuthActions.SIGNIN
         },
         {
-          type: AuthActions.SET_TOKEN
+          type: AuthActions.SET_TOKEN,
+          payload: token
         }
       ];
     });
